@@ -52,7 +52,7 @@ jobs:
         run: | 
           mvn clean verify sonar:sonar \
             -Dsonar.projectKey=ramkalidindi22\
-            -Dsonar.organization=Ramkalidindi22 \
+            -Dsonar.organization=ramkalidindi22 \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
         
