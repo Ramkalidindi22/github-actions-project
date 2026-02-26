@@ -42,4 +42,18 @@ jobs:
         run: sudo apt install gitleaks -y 
       - name: Gitleaks code scan
         run: gitleaks detect source . -r gitleaks-report.json -f json
-          
+  
+   tests:  
+      runs-on: ubuntu-latest
+  
+      steps:
+      - uses: actions/checkout@v4
+      - name: sonarcloud installation
+        run: | 
+          mvn clean verify sonar:sonar \
+            -Dsonar.projectKey=your_project_key \
+            -Dsonar.organization=your_org \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        
+            
